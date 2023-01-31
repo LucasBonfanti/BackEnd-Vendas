@@ -22,13 +22,13 @@ import lombok.NoArgsConstructor;
 public class Venda implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int codigo;
 
     @Column(name="Vendedor", nullable = false)
     private String nomeDoVendedor;
 
-    @Column(name="Data", nullable = false)
+    @Column(name="Data")
     private LocalDate dataDaVenda;
 
     @Column(name="Valor", nullable = false, precision = 5, scale = 2)
