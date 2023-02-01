@@ -1,6 +1,7 @@
 package br.com.vendas.api.controller;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,15 +44,19 @@ public class Controller {
         return vendaService.remover(codigo);
     }
 
-    @GetMapping("/vendas/vendedor/{idDoVendedor}")
+    //VENDAS POR VENDEDOR
+    @GetMapping("/vendas/vendasPorVendedor/{idDoVendedor}")
     public ResponseEntity<?> selecionarPeloId(@PathVariable int idDoVendedor){
         return vendaService.selecionarPeloId(idDoVendedor);
     }
 
-    @GetMapping("/vendas/vendasPorVendedor/{nomeDoVendedor}")
+    //QUANTIDADE DE VENDAS DO VENDEDOR 
+    @GetMapping("/vendas/vendedor/{nomeDoVendedor}")
     public ResponseEntity<?> vendasPorVendedor(@PathVariable String nomeDoVendedor){
         return vendaService.vendasPorVendedor(nomeDoVendedor);
     }
+
+   
 
     @GetMapping("/boasvindas")
     public String saudacao(){

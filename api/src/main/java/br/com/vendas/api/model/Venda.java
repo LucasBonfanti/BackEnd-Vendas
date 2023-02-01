@@ -42,6 +42,7 @@ public class Venda {
     @Column(name="IdVendedor", nullable = false)
     private int idDoVendedor;
 
+
     
 
     
