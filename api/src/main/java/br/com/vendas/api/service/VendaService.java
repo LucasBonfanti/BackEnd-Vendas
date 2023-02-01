@@ -1,5 +1,7 @@
 package br.com.vendas.api.service;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,8 @@ public class VendaService {
 
     public ResponseEntity<?> criarVenda(Venda obj){
 
+            obj.setDataDaVenda(LocalDate.now());
+
         if(obj.getNomeDoVendedor().equals("")){
             mensagem.setMensagem("O nome precisa ser preenchido");
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
@@ -30,7 +34,6 @@ public class VendaService {
             return new ResponseEntity<>(mensagem, HttpStatus.BAD_REQUEST);
         }else{
             return new ResponseEntity<>(acao.save(obj), HttpStatus.CREATED);
-
         }
 
     }

@@ -31,6 +31,10 @@ public class Venda implements Serializable {
     @Column(name="Data")
     private LocalDate dataDaVenda;
 
+    public Venda(LocalDate dataDaVenda) {
+        this.dataDaVenda = LocalDate.now();
+    }
+
     @Column(name="Valor", nullable = false, precision = 5, scale = 2)
     private BigDecimal valor;
 
