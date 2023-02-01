@@ -12,8 +12,11 @@ public interface VendaRepository extends CrudRepository<Venda, Integer> {
 
     Venda findByCodigo(int codigo);
 
-    int countByIdDoVendedor(int idDoVendedor);
+    Long countByIdDoVendedor(int idDoVendedor);
 
+    Long countByNomeDoVendedor(String nomeDoVendedor);
+
+    List<Venda> findByIdDoVendedor(int idDoVendedor);
 
     
 }

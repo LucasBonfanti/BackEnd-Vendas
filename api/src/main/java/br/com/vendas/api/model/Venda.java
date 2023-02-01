@@ -1,6 +1,5 @@
 package br.com.vendas.api.model;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -11,15 +10,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-public class Venda implements Serializable {
+public class Venda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

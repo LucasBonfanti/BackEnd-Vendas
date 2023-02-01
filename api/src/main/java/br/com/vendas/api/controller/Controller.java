@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.vendas.api.model.Venda;
-import br.com.vendas.api.repository.VendaRepository;
+// import br.com.vendas.api.repository.VendaRepository;
 import br.com.vendas.api.service.VendaService;
 
 @RestController
@@ -19,8 +19,8 @@ public class Controller {
     @Autowired
     private VendaService vendaService;
 
-    @Autowired
-    private VendaRepository acao;
+    // @Autowired
+    // private VendaRepository acao;
 
     @PostMapping("/vendas")
     public ResponseEntity<?> criarVenda(@RequestBody Venda obj){
@@ -37,14 +37,20 @@ public class Controller {
         return vendaService.selecionarVenda(codigo);
     }
 
-    @GetMapping("/vendas/contador")
-    public int contadorVendedor(int idDoVendedor){
-        return acao.countByIdDoVendedor(idDoVendedor);
-    }
 
     @DeleteMapping("/vendas/{codigo}")
     public ResponseEntity<?> remove(@PathVariable int codigo){
         return vendaService.remover(codigo);
+    }
+
+    @GetMapping("/vendas/vendedor/{idDoVendedor}")
+    public ResponseEntity<?> selecionarPeloId(@PathVariable int idDoVendedor){
+        return vendaService.selecionarPeloId(idDoVendedor);
+    }
+
+    @GetMapping("/vendas/vendasPorVendedor/{nomeDoVendedor}")
+    public ResponseEntity<?> vendasPorVendedor(@PathVariable String nomeDoVendedor){
+        return vendaService.vendasPorVendedor(nomeDoVendedor);
     }
 
     @GetMapping("/boasvindas")
